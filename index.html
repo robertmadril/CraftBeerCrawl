@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js"
+    integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="assets/css/reset.css">
     <link rel=stylesheet type="text/css" href="assets/css/style.css">
     <title>Craft Beer Crawl</title>
@@ -12,17 +14,20 @@
 
 <body>
     <div id="container">
-        <div id="pick-drinker"></div>
+        <div id="pick-drinker">
+            <img id="malt-pick" src="https://via.placeholder.com/150">
+            <img id="gose-pick" src="https://via.placeholder.com/150">
+            <img id="barrel-pick" src="https://via.placeholder.com/150">
+        </div>
         <div id="drinker"></div>
         <div id="beers-on-tap"></div>
         <div id="bar"></div>
+            <button>Drink</button>
         <div id="victor-msg"></div>
     </div>
 
 
     <script src="assets/javascript/game.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.js"
-    integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
 </body>
 
 </html>
