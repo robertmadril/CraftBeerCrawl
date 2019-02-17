@@ -31,7 +31,7 @@ var bev = {
         ounces: Math.floor(Math.random() * 40),
     },
 
-    pilsner: {
+    pils: {
         name: "pilsner",
         abv: Math.floor(Math.random() * 101),
         ounces: Math.floor(Math.random() * 101)
@@ -40,47 +40,62 @@ var bev = {
 };
 
 var chosenDrinker;
-var chosenTol;
-var chosenDA;
+var currBeer;
+var playPick = false;
+var beerPick = false;
 
-$("#malt-name").text(drink.malt.name);
-$("#gose-name").text(drink.gose.name);
+$("#malt-tol").text("Tolerance: " + drink.malt.tolerance);
+$("#malt-da").text("Drinking Ability: " + drink.malt.drinkingAbility);
 $("#gose-tol").text("Tolerance: " + drink.gose.tolerance);
 $("#gose-da").text("Drinking Ability: " + drink.gose.drinkingAbility);
-$("#barrel-name").text(drink.barrel.name);
 $("#barrel-tol").text("Tolerance: " + drink.barrel.tolerance);
 $("#barrel-da").text("Drinking Ability: " + drink.barrel.drinkingAbility);
 
+$("#ipa-abv").text("ABV: " + bev.ipa.abv);
+$("#ipa-oun").text("Ounces: " + bev.ipa.ounces);
+$("#stout-abv").text("ABV: " + bev.stout.abv);
+$("#stout-oun").text("Ounces: " + bev.stout.ounces);
+$("#pils-abv").text("ABV: " + bev.pils.abv);
+$("#pils-oun").text("Ounces: " + bev.pils.ounces);
 
-function drinkAction(c, b) {
-    c.tolerance = c.tolerance - b.abv;
-    c.drinkingAbility = c.drinkingAbility + c.drinkingAbility;
-    b.ounces = b.ounces - c.drinkingAbility;
+
+function drinkAction() {
 }
 
 $(".player").on("click", function() {
     chosenDrinker = this;
     $("#pick-drinker").empty();
     $("#drinker").append(chosenDrinker);
-    $("#beers-on-tap").append();
+    $("#beers-on-tap").css("display", "block");
+    playPick = true;
 });
 
+$(".on-tap").on("click", function() {
+    if (playPick) {
+        currBeer = this;
+        $("#bar").append(currBeer);
+        beerPick = true;
+    }
+
+})
+
 $("#drink-btn").on("click", function () {
-    drinkAction();
+    if (beerPick === true && playPick === true) {
+
+    }
 })
 
 
 /*
 
-Create a game flow that:
-That character is moved into the drinker section, beers populate with random ABV and "ounces"
-Player picks a beer and it is moved into the bar
+Attack button:
+Decrease chosen character tolerance by current beer ABV, display change
+Decrease current beer ounces by chosen character drinking ability, display change
 
-Play presses drink button to:
-call drinkAction function
+if current beer ounces <= 0 pick next enemy
+//If last enemy ounces <= 0, game is over, win
+//If tolerance <= 0, game is over, lost
 
 
 
 */
-//If last enemy ounces <= 0, game is over, win
-//If tolerance <= 0, game is over, lost
