@@ -15,6 +15,10 @@ var drink = {
         drinkingAbility: Math.floor(Math.random() * 15),
     },
 
+};
+
+var bev = {
+
     ipa: {
         name: "IPA",
         abv: Math.floor(Math.random() * 15),
@@ -35,7 +39,18 @@ var drink = {
 
 };
 
-var chosenDrinker = ""
+var chosenDrinker;
+var chosenTol;
+var chosenDA;
+
+$("#malt-name").text(drink.malt.name);
+$("#gose-name").text(drink.gose.name);
+$("#gose-tol").text("Tolerance: " + drink.gose.tolerance);
+$("#gose-da").text("Drinking Ability: " + drink.gose.drinkingAbility);
+$("#barrel-name").text(drink.barrel.name);
+$("#barrel-tol").text("Tolerance: " + drink.barrel.tolerance);
+$("#barrel-da").text("Drinking Ability: " + drink.barrel.drinkingAbility);
+
 
 function drinkAction(c, b) {
     c.tolerance = c.tolerance - b.abv;
@@ -43,26 +58,14 @@ function drinkAction(c, b) {
     b.ounces = b.ounces - c.drinkingAbility;
 }
 
-$("#malt-pick").on("click", function() {
-    chosenDrinker = "#malt-pick";
+$(".player").on("click", function() {
+    chosenDrinker = this;
     $("#pick-drinker").empty();
-    $("#drinker").append("<div>MALT PICK</div>")
+    $("#drinker").append(chosenDrinker);
+    $("#beers-on-tap").append();
 });
 
-$("#gose-pick").on("click", function() {
-    chosenDrinker = "#gose-pick";
-    $("#pick-drinker").empty();
-    $("#drinker").append("<div>GOSE PICK</div>")
-});
-
-$("#barrel-pick").on("click", function() {
-    chosenDrinker = "#barrel-pick";
-    $("#pick-drinker").empty();
-    $("#drinker").append("<div>BARREL PICK</div>");
-
-});
-
-$("#drink-btn").on("click", function() {
+$("#drink-btn").on("click", function () {
     drinkAction();
 })
 
@@ -81,4 +84,3 @@ call drinkAction function
 */
 //If last enemy ounces <= 0, game is over, win
 //If tolerance <= 0, game is over, lost
-})

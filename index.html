@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.js"
-    integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
+        integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="assets/css/reset.css">
     <link rel=stylesheet type="text/css" href="assets/css/style.css">
     <title>Craft Beer Crawl</title>
@@ -15,14 +15,29 @@
 <body>
     <div id="container">
         <div id="pick-drinker">
-            <img id="malt-pick" src="https://via.placeholder.com/150">
-            <img id="gose-pick" src="https://via.placeholder.com/150">
-            <img id="barrel-pick" src="https://via.placeholder.com/150">
+            <div class="player" id="malt">
+                <img src="https://via.placeholder.com/150">
+                <p id="malt-name"></p>
+                <p id="malt-tol"></p>
+                <p id="malt-da"></p>
+            </div>
+            <div class="player" id="gose">
+                <img src="https://via.placeholder.com/150">
+                <p id="gose-name"></p>
+                <p id="gose-tol"></p>
+                <p id="gose-da"></p>
+            </div>
+            <div class="player" id="barrel">
+                <img src="https://via.placeholder.com/150">
+                <p id="barrel-name"></p>
+                <p id="barrel-tol"></p>
+                <p id="barrel-da"></p>
+            </div>
         </div>
         <div id="drinker"></div>
         <div id="beers-on-tap"></div>
         <div id="bar"></div>
-            <button id="drink-btn">Drink</button>
+        <button id="drink-btn">Drink</button>
         <div id="victor-msg"></div>
     </div>
 
