@@ -88,9 +88,6 @@ $("#pils-oun").text(bev.pils.ounces);
 $("#pils").attr("oun", bev.pils.ounces);
 
 
-function drinkAction() {
-}
-
 $(".player").on("click", function() {
     chosenDrinker = this;
     attackTol = $(this).attr("tolerance");
@@ -103,6 +100,18 @@ $(".player").on("click", function() {
 });
 
 $(".on-tap").on("click", function() {
+    if (victorThree) {
+        currBeer = this;
+        defendABV = $(this).attr("abv");
+        defendOZ = $(this).attr("oun");
+        $("#bar").append(currBeer);
+    }
+    if (victorTwo) {
+        currBeer = this;
+        defendABV = $(this).attr("abv");
+        defendOZ = $(this).attr("oun");
+        $("#bar").append(currBeer);
+    }
     if (charPick) {
         currBeer = this;
         defendABV = $(this).attr("abv");
@@ -114,25 +123,62 @@ $(".on-tap").on("click", function() {
 })
 
 $("#drink-btn").on("click", function () {
-    if (beerPickOne === true && charPick === true) {
+    if (victorThree) {
         attackTol = attackTol - defendABV;
         defendOZ = defendOZ - attackDA;
-        //attackDA = attackDA + attackDAInit;
-        console.log(attackTol);
-        console.log(defendOZ);
+        attackDA = parseInt(attackDA) + parseInt(attackDAInit);
+        if (attackTol <= 0) {
+            alert("You lost");
+        }
+        if (defendOZ <=0) {
+            alert("YOU WON");
+        }
     }
+    if (victorTwo) {
+        attackTol = attackTol - defendABV;
+        defendOZ = defendOZ - attackDA;
+        attackDA = parseInt(attackDA) + parseInt(attackDAInit);
+        if (attackTol <= 0) {
+            alert("You lost");
+        }
+        if (defendOZ <=0) {
+            $("#bar").empty();
+            currBeer = "";
+            victorThree = true;
+            victorTwo = false; 
+        }
+    }
+
+    if (beerPickOne) {
+        attackTol = attackTol - defendABV;
+        defendOZ = defendOZ - attackDA;
+        attackDA = parseInt(attackDA) + parseInt(attackDAInit);
+        if (attackTol <= 0) {
+            alert("You lost");
+        }
+        if (defendOZ <= 0) {
+            $("#bar").empty();
+            currBeer = "";
+            defendOZ = "";
+            victorTwo = true;
+            beerPickOne = false;
+        }
+        
+    }
+
+    console.log(attackTol);
+    console.log(defendOZ);
+    console.log(attackDA);
 })
 
 
 /*
 
-Attack button:
-Decrease chosen character tolerance by current beer ABV, display change
-Decrease current beer ounces by chosen character drinking ability, display change
+Display correct tolerance, defendoz and attackDA in fields
+make reset button
 
-if current beer ounces <= 0 pick next enemy
-//If last enemy ounces <= 0, game is over, win
-//If tolerance <= 0, game is over, lost
+Bugs: attack button works when new competitor isn't clicked
+Win isn't tracked
 
 
 
