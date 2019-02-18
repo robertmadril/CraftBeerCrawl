@@ -144,6 +144,7 @@ $("#drink-btn").on("click", function () {
         if (defendOZ <=0) {
             $("#bar").empty();
             currBeer = "";
+            defendOZ = 0;
             victorThree = true;
             victorTwo = false; 
         }
@@ -159,7 +160,7 @@ $("#drink-btn").on("click", function () {
         if (defendOZ <= 0) {
             $("#bar").empty();
             currBeer = "";
-            defendOZ = "";
+            defendOZ = 0;
             victorTwo = true;
             beerPickOne = false;
         }
@@ -177,8 +178,12 @@ $("#drink-btn").on("click", function () {
 Display correct tolerance, defendoz and attackDA in fields
 make reset button
 
-Bugs: attack button works when new competitor isn't clicked
-Win isn't tracked
+Bugs: 
+
+attack button works when new competitor isn't clicked
+It's too easy to win
+Tol and DA goes down when attack button is clicked, even if beer isn't picked
+
 
 
 
