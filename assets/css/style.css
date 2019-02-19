@@ -10,17 +10,106 @@ html, body {
 
 }
 
+img {
+    border-radius: 50px;
+    margin: 0;
+    width: 150px;
+    height: 150px;
+}
 #container {
     width: 550px;
     margin: auto;
-    height: 100%;
+    height: 697px;
     position: relative;
+    color: wheat;
+}
+
+.title {
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    font-family: 'Satisfy', cursive;
+    font-size: 48px;
+    color: white;
+}
+
+h1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 24px;
+    color: white;
+}
+
+p {
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #beers-on-tap {
     display: none;
     position: absolute;
-    top: 50px;
+    top: 35px;
+    left: 60px;
     display: none;
 }
+
+.on-tap {
+    width: 150px;
+    margin-right: 10px;
+    float: left;
+    text-align: center;
+}
+
+#bar {
+    position: absolute;
+    left: 130px; 
+    top: 270px;
+}
+
+#drink-btn {
+    position: absolute;
+    left: 280px;
+    bottom: 240px;
+    display: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#victor-msg {
+    position: absolute;
+    left: 130px;
+    top: 90px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 36px;
+}
+
+#drinker {
+    position: absolute;
+    bottom: 230px;
+    right: 50px;
+}
+
+#pick-drinker {
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+}
+.player {
+    width: 150px;
+    margin-right: 10px;
+    float: left;
+    text-align: center;
+}
+
+#reset-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 260px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+/*
+add images
+add hover cursor
+style button
+*/
 

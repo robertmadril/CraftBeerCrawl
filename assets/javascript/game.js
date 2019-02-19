@@ -94,6 +94,7 @@ $("#pils").attr("abv", bev.pils.abv);
 $("#pils-oun").text(bev.pils.ounces);
 $("#pils").attr("oun", bev.pils.ounces);
 
+$("#victor-msg").text("Choose a bar patron. Choose a beer. Drink up.")
 //function to assign child ID's to appropriate display
 
 var assignCharID = function (t) {
@@ -137,6 +138,7 @@ $(".player").on("click", function () {
     attackDA = $(this).attr("da");
     attackDAInit = $(this).attr("da");
     $("#pick-drinker").empty();
+    $("#victor-msg").empty();
     $("#drinker").append(chosenDrinker);
     $("#beers-on-tap").css("display", "block");
     assignCharID(this.id);
@@ -169,6 +171,7 @@ $(".on-tap").on("click", function () {
         defendOZ = $(this).attr("oun");
         $("#bar").append(currBeer);
         assignBeerID(this.id);
+        $("#drink-btn").css("display", "block");
         charPick = false;
         beerPickOne = true;
     }
@@ -187,15 +190,17 @@ $("#drink-btn").on("click", function () {
             $("#drinker").empty();
             $("#beers-on-tap").empty();
             $("#bar").empty();
+            $("#drink-btn-con").empty();
             $("#reset-btn").text("Go Out Again");
-            $("#victor-msg").text("Looks like you had too much, time to take a Lyft home.")
+            $("#victor-msg").text("Looks like you had too much. I'll call you a Lyft.")
         }
         if (defendOZ <= 0) {
             $("#drinker").empty();
             $("#beers-on-tap").empty();
             $("#bar").empty();
+            $("#drink-btn-con").empty();
             $("#reset-btn").text("Go Out Again");
-            $("#victor-msg").text("You made it to closing time! You don't have to go home, but you can't stay here");
+            $("#victor-msg").text("You made it to closing time! You don't have to go home, but you can't stay here.");
         }
     }
     if (!victorOne && beerPickTwo) {
@@ -209,8 +214,9 @@ $("#drink-btn").on("click", function () {
             $("#drinker").empty();
             $("#beers-on-tap").empty();
             $("#bar").empty();
+            $("#drink-btn-con").empty();
             $("#reset-btn").text("Go Out Again");
-            $("#victor-msg").text("Looks like you had too much, time to take a Lyft home.")
+            $("#victor-msg").text("Looks like you had too much. I'll call you a Lyft.")
         }
         if (defendOZ <= 0) {
             $("#bar").empty();
@@ -232,8 +238,9 @@ $("#drink-btn").on("click", function () {
             $("#drinker").empty();
             $("#beers-on-tap").empty();
             $("#bar").empty();
+            $("#drink-btn-con").empty();
             $("#reset-btn").text("Go Out Again");
-            $("#victor-msg").text("Looks like you had too much, time to take a Lyft home.")
+            $("#victor-msg").text("Looks like you had too much. I'll call you a Lyft.")
         }
         if (defendOZ <= 0) {
             $("#bar").empty();
@@ -276,13 +283,3 @@ $("#reset-btn").on("click", function () {
 })
 
 })
-
-/*
-
-Bugs:
-
-Need way to not allow input after winning or losing
-Win/Lose can occur at the same time
-
-
-*/

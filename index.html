@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Satisfy" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.js"
         integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
     <link rel=stylesheet type="text/css" href="assets/css/reset.css">
@@ -14,60 +15,60 @@
 
 <body>
     <div id="container">
-        <div class="title">CRAFT BEER CRAWL</div>
+        <div class="title">Craft Beer Crawl</div>
         <div id="beers-on-tap">
-            <h1>BEERS ON TAP</h1>
+            <h1>Beers on Tap</h1>
             <div class="on-tap" id="ipa" abv="" oun="">
-                <img src="https://via.placeholder.com/150">
+                <img src="assets/images/ipa.jpg" alt="ipa image">
                 <p>IPA</p>
                 <p>ABV: <span id="ipa-abv"></span></p>
                 <p>Ounces: <span id="ipa-oun"></span></p>
             </div>
             <div class="on-tap" id="stout" abv="" oun="">
-                <img src="https://via.placeholder.com/150">
+                <img src="assets/images/stout.jpg" alt="stout image">
                 <p>Stout</p>
                 <p>ABV: <span id="stout-abv"></span></p>
                 <p>Ounces: <span id="stout-oun"></span></p>
             </div>
             <div class="on-tap" id="pils" abv="" oun="">
-                <img src="https://via.placeholder.com/150">
+                <img src="assets/images/pilsner.jpg">
                 <p>Pilsner</p>
                 <p>ABV: <span id="pils-abv"></span></p>
                 <p>Ounces: <span id="pils-oun"></span></p>
             </div>
         </div>
-        <div>
-            <h1>THE BAR</h1>
-            <div id="bar"></div>
-            <button id="drink-btn">Drink</button>
-            <div id="victor-msg"></div>
-        </div>
+
+        <div id="bar"></div>
+        <div id="victor-msg"></div>
         <div id="drinker"></div>
+        <div id="drink-btn-con">
+            <button id="drink-btn">Drink</button>
+        </div>
         <div id="pick-drinker">
-            <h1>CHOOSE A DRINKER</h1>
+            <h1>Choose a Drinker</h1>
             <div class="player" id="malt" tolerance="" da="">
-                <img src="https://via.placeholder.com/150">
+                <img src="assets/images/maltmaster.jpg" alt="character one image">
                 <p>The Malt Master</p>
                 <p>Tolerance: <span id="malt-tol"></span></p>
                 <p>Drinking Ability: <span id="malt-da"></span></p>
             </div>
             <div class="player" id="gose" tolerance="" da="">
-                <img src="https://via.placeholder.com/150">
+                <img src="assets/images/gosegod.jpg" alt="characer two image">
                 <p id="gose-name">The Gose God</p>
                 <p>Tolerance: <span id="gose-tol"></span></p>
                 <p>Drinking Ability: <span id="gose-da"></span></p>
             </div>
             <div class="player" id="barrel" tolerance="" da="">
-                <img src="https://via.placeholder.com/150">
+                <img src="assets/images/barrelbaron.jpg" alt="character three image">
                 <p>The Barrel Baron</p>
                 <p>Tolerance: <span id="barrel-tol"></span></p>
                 <p>Drinking Ability: <span id="barrel-da"></span></p>
             </div>
-            <button id="reset-btn">Close Early</button>
+
         </div>
-
-
-        <script src="assets/javascript/game.js"></script>
+        <button id="reset-btn">Close Early</button>
+    </div>
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
