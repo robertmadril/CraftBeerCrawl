@@ -229,6 +229,7 @@ $("#drink-btn").on("click", function () {
 
 
 /*
+Tasks:
 
 make reset button
 
