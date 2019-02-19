@@ -235,11 +235,7 @@ make reset button
 Bugs: 
 
 Need way to not allow input after winning or losing
-attack button works when new competitor isn't clicked
-It's too easy to win
-Tol and DA goes down when attack button is clicked, even if beer isn't picked
-
-
+Win/Lose can occur at the same time
 
 
 */
