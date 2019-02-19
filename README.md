@@ -1,4 +1,4 @@
-# unit-4-game
+# Craft Beer Crawl
 JQuery Assignment
 
 Avoid the lines and fellow drunkards. Welcome to the one and only craft beer crawl that you can get to from the comfort of your living room.
