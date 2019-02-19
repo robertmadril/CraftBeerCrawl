@@ -283,3 +283,10 @@ $("#reset-btn").on("click", function () {
 })
 
 })
+
+/*
+
+Bugs:
+Restart without page refresh
+Not mobile responsive
+*/

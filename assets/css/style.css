@@ -58,6 +58,10 @@ p {
     text-align: center;
 }
 
+.on-tap:hover {
+    cursor: pointer;
+}
+
 #bar {
     position: absolute;
     left: 130px; 
@@ -68,8 +72,17 @@ p {
     position: absolute;
     left: 280px;
     bottom: 240px;
+    padding: 5px;
     display: none;
+    border-radius: 8px;
     font-family: 'Josefin Sans', sans-serif;
+}
+
+button:focus {
+    outline:0;
+}
+#drink-btn:hover {
+    cursor: pointer;
 }
 
 #victor-msg {
@@ -99,17 +112,22 @@ p {
     text-align: center;
 }
 
+.player:hover {
+    cursor: pointer;
+}
+
 #reset-btn {
     position: absolute;
     bottom: 10px;
     left: 260px;
+    padding: 5px;
+    border-radius: 8px;
     font-family: 'Josefin Sans', sans-serif;
 }
 
+#reset-btn:hover {
+    cursor: pointer;
+}
 
-/*
-add images
-add hover cursor
-style button
-*/
+
 
