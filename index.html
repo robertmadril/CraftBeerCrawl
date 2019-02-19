@@ -14,6 +14,35 @@
 
 <body>
     <div id="container">
+        <div class="title">CRAFT BEER CRAWL</div>
+        <div id="beers-on-tap">
+            <h1>BEERS ON TAP</h1>
+            <div class="on-tap" id="ipa" abv="" oun="">
+                <img src="https://via.placeholder.com/150">
+                <p>IPA</p>
+                <p>ABV: <span id="ipa-abv"></span></p>
+                <p>Ounces: <span id="ipa-oun"></span></p>
+            </div>
+            <div class="on-tap" id="stout" abv="" oun="">
+                <img src="https://via.placeholder.com/150">
+                <p>Stout</p>
+                <p>ABV: <span id="stout-abv"></span></p>
+                <p>Ounces: <span id="stout-oun"></span></p>
+            </div>
+            <div class="on-tap" id="pils" abv="" oun="">
+                <img src="https://via.placeholder.com/150">
+                <p>Pilsner</p>
+                <p>ABV: <span id="pils-abv"></span></p>
+                <p>Ounces: <span id="pils-oun"></span></p>
+            </div>
+        </div>
+        <div>
+            <h1>THE BAR</h1>
+            <div id="bar"></div>
+            <button id="drink-btn">Drink</button>
+            <div id="victor-msg"></div>
+        </div>
+        <div id="drinker"></div>
         <div id="pick-drinker">
             <h1>CHOOSE A DRINKER</h1>
             <div class="player" id="malt" tolerance="" da="">
@@ -34,37 +63,11 @@
                 <p>Tolerance: <span id="barrel-tol"></span></p>
                 <p>Drinking Ability: <span id="barrel-da"></span></p>
             </div>
+            <button id="reset-btn">Close Early</button>
         </div>
-        <div id="drinker"></div>
-        <div id="beers-on-tap">
-            <h1>BEERS ON TAP</h1>
-            <div class="on-tap" id="ipa" abv="" oun="">
-                <img src="https://via.placeholder.com/150">
-                <p>IPA</p>
-                <p>ABV: <span id="ipa-abv"></span></p>
-                <p>Ounces: <span id="ipa-oun"></span></p>
-            </div>
-            <div class="on-tap" id="stout" abv="" oun="">
-                    <img src="https://via.placeholder.com/150">
-                    <p>Stout</p>
-                    <p>ABV: <span id="stout-abv"></span></p>
-                    <p>Ounces: <span id="stout-oun"></span></p>
-            </div>
-            <div class="on-tap" id="pils" abv="" oun="">
-                    <img src="https://via.placeholder.com/150">
-                    <p>Pilsner</p>
-                    <p>ABV: <span id="pils-abv"></span></p>
-                    <p>Ounces: <span id="pils-oun"></span></p>
-            </div>
-        </div>
-        <div><h1>THE BAR</h1>
-        <div id="bar"></div>
-        <button id="drink-btn">Drink</button>
-        <div id="victor-msg"></div>
-    </div>
 
 
-    <script src="assets/javascript/game.js"></script>
+        <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>

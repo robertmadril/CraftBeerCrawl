@@ -1,3 +1,4 @@
+$("document").ready( function() {
 //object elements containing three characters and three 'enemy' beers
 
 var drink = {
@@ -93,9 +94,9 @@ $("#pils").attr("abv", bev.pils.abv);
 $("#pils-oun").text(bev.pils.ounces);
 $("#pils").attr("oun", bev.pils.ounces);
 
-//function to assign id
+//function to assign child ID's to appropriate display
 
-var assignCharID = function(t) {
+var assignCharID = function (t) {
     if (t === "malt") {
         displayTol = $("#malt-tol");
         displayDA = $("#malt-da")
@@ -111,7 +112,7 @@ var assignCharID = function(t) {
     }
 }
 
-var assignBeerID = function(t) {
+var assignBeerID = function (t) {
     if (t === "ipa") {
         displayOZ = $("#ipa-oun");
     };
@@ -128,7 +129,9 @@ var assignBeerID = function(t) {
 
 //game play
 
-$(".player").on("click", function() {
+//Player click function
+
+$(".player").on("click", function () {
     chosenDrinker = this;
     attackTol = $(this).attr("tolerance");
     attackDA = $(this).attr("da");
@@ -140,7 +143,7 @@ $(".player").on("click", function() {
     charPick = true;
 });
 
-$(".on-tap").on("click", function() {
+$(".on-tap").on("click", function () {
     if (victorTwo && !beerPickTwo) {
         currBeer = this;
         defendABV = $(this).attr("abv");
@@ -181,10 +184,18 @@ $("#drink-btn").on("click", function () {
         displayDA.text(attackDA);
         displayOZ.text(defendOZ);
         if (attackTol <= 0) {
-            alert("You lost");
+            $("#drinker").empty();
+            $("#beers-on-tap").empty();
+            $("#bar").empty();
+            $("#reset-btn").text("Go Out Again");
+            $("#victor-msg").text("Looks like you had too much, time to take a Lyft home.")
         }
-        if (defendOZ <=0) {
-            alert("YOU WON");
+        if (defendOZ <= 0) {
+            $("#drinker").empty();
+            $("#beers-on-tap").empty();
+            $("#bar").empty();
+            $("#reset-btn").text("Go Out Again");
+            $("#victor-msg").text("You made it to closing time! You don't have to go home, but you can't stay here");
         }
     }
     if (!victorOne && beerPickTwo) {
@@ -195,9 +206,13 @@ $("#drink-btn").on("click", function () {
         displayDA.text(attackDA);
         displayOZ.text(defendOZ);
         if (attackTol <= 0) {
-            alert("You lost");
+            $("#drinker").empty();
+            $("#beers-on-tap").empty();
+            $("#bar").empty();
+            $("#reset-btn").text("Go Out Again");
+            $("#victor-msg").text("Looks like you had too much, time to take a Lyft home.")
         }
-        if (defendOZ <=0) {
+        if (defendOZ <= 0) {
             $("#bar").empty();
             currBeer = "";
             defendOZ = 0;
@@ -214,7 +229,11 @@ $("#drink-btn").on("click", function () {
         displayDA.text(attackDA);
         displayOZ.text(defendOZ);
         if (attackTol <= 0) {
-            alert("You lost");
+            $("#drinker").empty();
+            $("#beers-on-tap").empty();
+            $("#bar").empty();
+            $("#reset-btn").text("Go Out Again");
+            $("#victor-msg").text("Looks like you had too much, time to take a Lyft home.")
         }
         if (defendOZ <= 0) {
             $("#bar").empty();
@@ -223,17 +242,44 @@ $("#drink-btn").on("click", function () {
             victorOne = true;
             beerPickOne = false;
         }
-        
+
     }
 })
 
+$("#reset-btn").on("click", function () {
+   /* chosenDrinker = "";
+    currBeer = "";
+    attackTol = 0;
+    attackDA = 0;
+    attackDAInit = 0;
+    defendABV = 0;
+    defendOZ = 0;
+    displayTol = "";
+    displayDA = "";
+    displayOZ = "";
+
+    charPick = false;
+    beerPickOne = false;
+    victorOne = false;
+    beerPickTwo = false;
+    victorTwo = false;
+    beerPickThree = false;
+    victorThree = false;
+
+    $("#drinker").empty();
+    $("#beers-on-tap").empty();
+    $("#bar").empty();
+    $("#victor-msg").empty(); */
+
+    //placehold until figure out how to re-load hidden HTML documents
+    window.location.reload();
+})
+
+})
 
 /*
-Tasks:
 
-make reset button
-
-Bugs: 
+Bugs:
 
 Need way to not allow input after winning or losing
 Win/Lose can occur at the same time

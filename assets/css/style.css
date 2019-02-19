@@ -1,3 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: url("../images/background.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+#container {
+    width: 550px;
+    margin: auto;
+    height: 100%;
+    position: relative;
+}
+
 #beers-on-tap {
     display: none;
+    position: absolute;
+    top: 50px;
+    display: none;
 }
+
