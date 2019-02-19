@@ -4,17 +4,17 @@ var drink = {
     malt: {
         name: "The Malt Master",
         tolerance: Math.floor(Math.random() * 75) + 50,
-        drinkingAbility: Math.floor(Math.random() * 10) + 3,
+        drinkingAbility: Math.floor(Math.random() * 5) + 1,
     },
     gose: {
         name: "The Gose God",
         tolerance: Math.floor(Math.random() * 75) + 50,
-        drinkingAbility: Math.floor(Math.random() * 10) + 3,
+        drinkingAbility: Math.floor(Math.random() * 5) + 1,
     },
     barrel: {
         name: "The Barrel Baron",
         tolerance: Math.floor(Math.random() * 75) + 50,
-        drinkingAbility: Math.floor(Math.random() * 10) + 3,
+        drinkingAbility: Math.floor(Math.random() * 5) + 1,
     },
 
 };
@@ -49,10 +49,16 @@ var attackDA;
 var attackDAInit;
 var defendABV;
 var defendOZ;
+var displayTol;
+var displayDA;
+var displayOZ;
 
 var charPick = false;
 var beerPickOne = false;
+var victorOne = false;
+var beerPickTwo = false;
 var victorTwo = false;
+var beerPickThree = false;
 var victorThree = false;
 
 //Set HTML elements/attributes to object elements
@@ -87,6 +93,40 @@ $("#pils").attr("abv", bev.pils.abv);
 $("#pils-oun").text(bev.pils.ounces);
 $("#pils").attr("oun", bev.pils.ounces);
 
+//function to assign id
+
+var assignCharID = function(t) {
+    if (t === "malt") {
+        displayTol = $("#malt-tol");
+        displayDA = $("#malt-da")
+    }
+    if (t === "gose") {
+        displayTol = $("#gose-tol");
+        displayDA = $("#gose-da");
+    }
+
+    if (t === "barrel") {
+        displayTol = $("#barrel-tol");
+        displayDA = $("#barrel-da");
+    }
+}
+
+var assignBeerID = function(t) {
+    if (t === "ipa") {
+        displayOZ = $("#ipa-oun");
+    };
+
+    if (t === "stout") {
+        displayOZ = $("#stout-oun");
+    };
+
+    if (t === "pils") {
+        displayOZ = $("#pils-oun");
+    };
+}
+
+
+//game play
 
 $(".player").on("click", function() {
     chosenDrinker = this;
@@ -96,37 +136,50 @@ $(".player").on("click", function() {
     $("#pick-drinker").empty();
     $("#drinker").append(chosenDrinker);
     $("#beers-on-tap").css("display", "block");
+    assignCharID(this.id);
     charPick = true;
 });
 
 $(".on-tap").on("click", function() {
-    if (victorThree) {
+    if (victorTwo && !beerPickTwo) {
         currBeer = this;
         defendABV = $(this).attr("abv");
         defendOZ = $(this).attr("oun");
         $("#bar").append(currBeer);
+        assignBeerID(this.id);
+        beerPickThree = true;
+        victorTwo = false;
     }
-    if (victorTwo) {
+    if (victorOne && !beerPickOne) {
         currBeer = this;
         defendABV = $(this).attr("abv");
         defendOZ = $(this).attr("oun");
         $("#bar").append(currBeer);
+        assignBeerID(this.id);
+        beerPickTwo = true;
+        victorOne = false;
+
     }
     if (charPick) {
         currBeer = this;
         defendABV = $(this).attr("abv");
         defendOZ = $(this).attr("oun");
         $("#bar").append(currBeer);
+        assignBeerID(this.id);
+        charPick = false;
         beerPickOne = true;
     }
 
 })
 
 $("#drink-btn").on("click", function () {
-    if (victorThree) {
+    if (!victorTwo && beerPickThree) {
         attackTol = attackTol - defendABV;
         defendOZ = defendOZ - attackDA;
         attackDA = parseInt(attackDA) + parseInt(attackDAInit);
+        displayTol.text(attackTol);
+        displayDA.text(attackDA);
+        displayOZ.text(defendOZ);
         if (attackTol <= 0) {
             alert("You lost");
         }
@@ -134,10 +187,13 @@ $("#drink-btn").on("click", function () {
             alert("YOU WON");
         }
     }
-    if (victorTwo) {
+    if (!victorOne && beerPickTwo) {
         attackTol = attackTol - defendABV;
         defendOZ = defendOZ - attackDA;
         attackDA = parseInt(attackDA) + parseInt(attackDAInit);
+        displayTol.text(attackTol);
+        displayDA.text(attackDA);
+        displayOZ.text(defendOZ);
         if (attackTol <= 0) {
             alert("You lost");
         }
@@ -145,15 +201,18 @@ $("#drink-btn").on("click", function () {
             $("#bar").empty();
             currBeer = "";
             defendOZ = 0;
-            victorThree = true;
-            victorTwo = false; 
+            victorTwo = true;
+            beerPickTwo = false;
         }
     }
 
-    if (beerPickOne) {
+    if (beerPickOne && !charPick) {
         attackTol = attackTol - defendABV;
         defendOZ = defendOZ - attackDA;
         attackDA = parseInt(attackDA) + parseInt(attackDAInit);
+        displayTol.text(attackTol);
+        displayDA.text(attackDA);
+        displayOZ.text(defendOZ);
         if (attackTol <= 0) {
             alert("You lost");
         }
@@ -161,25 +220,21 @@ $("#drink-btn").on("click", function () {
             $("#bar").empty();
             currBeer = "";
             defendOZ = 0;
-            victorTwo = true;
+            victorOne = true;
             beerPickOne = false;
         }
         
     }
-
-    console.log(attackTol);
-    console.log(defendOZ);
-    console.log(attackDA);
 })
 
 
 /*
 
-Display correct tolerance, defendoz and attackDA in fields
 make reset button
 
 Bugs: 
 
+Need way to not allow input after winning or losing
 attack button works when new competitor isn't clicked
 It's too easy to win
 Tol and DA goes down when attack button is clicked, even if beer isn't picked
