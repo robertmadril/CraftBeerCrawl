@@ -91,7 +91,7 @@ p {
 
 #drink-btn {
     position: absolute;
-    left: 280px;
+    left: 291px;
     bottom: 240px;
     padding: 5px;
     display: none;
@@ -113,6 +113,11 @@ button:focus {
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 36px;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }
 
 #drinker {
