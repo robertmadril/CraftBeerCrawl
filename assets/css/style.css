@@ -31,12 +31,22 @@ img {
     font-family: 'Satisfy', cursive;
     font-size: 48px;
     color: white;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }
 
 h1 {
     font-family: 'Satisfy', cursive;
     font-size: 24px;
     color: white;
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }
 
 p {
@@ -49,6 +59,7 @@ p {
     top: 35px;
     left: 60px;
     display: none;
+
 }
 
 .on-tap {
@@ -56,6 +67,16 @@ p {
     margin-right: 10px;
     float: left;
     text-align: center;
+
+}
+
+.on-tap p {
+    background: rgba(204, 204, 204, 0.5);
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }
 
 .on-tap:hover {
@@ -110,6 +131,15 @@ button:focus {
     margin-right: 10px;
     float: left;
     text-align: center;
+}
+
+.player p {
+    background: rgba(204, 204, 204, 0.5);
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }
 
 .player:hover {
